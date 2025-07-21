@@ -47,12 +47,12 @@ const store = mongoStore.create({
   crypto: {
     secret: process.env.SECRET,
   },
-  touchAfter: 24 * 3600
+  touchAfter: 24 * 3600,
 });
 
-store.on("error",()=>{
-  console.log("error in SESSION STORE",err);
-})
+store.on("error", () => {
+  console.log("error in SESSION STORE", err);
+});
 
 const sessionOptions = {
   store,
@@ -89,9 +89,9 @@ app.use("/listings/:id/reviews", reviewRoute);
 app.use("/", userRoute);
 
 //Home route
-// app.get('/',(req,res)=>{
-//     res.send("<h1>Welcome to TRAVORA</h1>");
-// })
+app.get("/", (req, res) => {
+  res.render("/listings");
+});
 
 // ----------*******----------
 //Any other route
