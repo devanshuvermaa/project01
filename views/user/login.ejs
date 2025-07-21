@@ -1,0 +1,26 @@
+<% layout("layouts/boilerplate") %>
+
+    <div class="row shadow-lg mt-5">
+        <h1 class="text-center mt-4 " style="color: #fe424d;">Travora</h1>
+        <p class="text-center" ><i>Find Your Place in the World.</i></p>
+        <div class="col-4 offset-4 mb-4 mt-4">
+            <form method="post" action="/login" novalidate class="needs-validation">
+                <div class="mb-3 mt-3 ">
+                    <label for="username" class="form-label ">Username </label>
+                    <input name="username" type="text" id="username" placeholder="Enter Username" class="form-control"
+                        required>
+                    <div class="valid-feedback">Username looks cool!</div>
+                    <div class="invalid-feedback">Username is must!</div>
+                </div>
+                 <div class="mb-3 mt-3 ">
+                    <label for="password" class="form-label ">Password </label>
+                    <input name="password" type="password" id="password" placeholder="Enter password" class="form-control"
+                        required>
+                    <div class="valid-feedback">looks good!</div>
+                    <div class="invalid-feedback">password is must!</div>
+                </div>
+                <button class="btn btn-dark mt-4 mb-2 d-flex mx-auto">Log in</button>
+            </form>
+            <p class="text-center" >New User <a style="text-decoration: none ;" href="/signup">Sign Up here</a> </p>
+        </div>
+    </div>

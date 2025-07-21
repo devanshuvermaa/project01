@@ -1,0 +1,103 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex: 1;
+    /* margin-left: 1.4rem; */
+}
+
+/* NAVBAR */
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.fa-compass{
+    color: #fe424d;
+    font-size: 2.3rem;
+}
+.nav-link{
+    color: #222222 !important;
+    font-size: 1rem !important;
+}
+
+/* .login{
+    border: 2px solid black !important;
+    border-radius: 0.5rem;
+    margin-left:1rem;
+}
+.login:hover{
+    background-color: black;
+    color: white !important;
+} */
+/* Footer */
+footer{
+    background-color: rgb(235, 238, 241);
+}
+.fa-brands{
+    font-size: 1.3rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+.foot-info-socials,.foot-info-links,.company{
+    margin-top: 0.6rem;
+    align-self: center;
+    justify-self: center;
+}
+.foot-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.foot-info-links a:hover{
+    text-decoration: underline;
+    color: rgb(47, 148, 243);
+}
+
+/* CARDS */
+.card{
+    border: none !important;
+    margin-bottom: 1rem;
+}
+.card-img-top{
+    border-radius: 1rem !important;
+}
+.card-link{
+    text-decoration: none !important;
+}
+
+/* Card Effect */
+.card-img-overlay{
+    opacity:0;
+}
+.card-img-overlay:hover{
+    opacity:0.2;
+    background-color: white;
+}
+
+/* Show */
+.show-img{
+    height: 400px;
+    width: 700px;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+.show-editbtn,.show-deletebtn{
+    width: 15rem;
+    padding: 0.7rem !important;
+}
+.show-deletebtn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+.review-div{
+    /* background-color: #fe424d; */
+    border: 2px solid black;
+    border-radius: 1rem;
+}
+.fa-star{
+    color: rgb(224, 193, 16);
+}

@@ -1,0 +1,149 @@
+<% layout("layouts/boilerplate") %>
+<style>
+  .filters {
+    display: flex;
+    overflow: auto;
+    margin: 2rem 0;
+    padding-top: 1rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out;
+  }
+  .filters::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  .filters:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-6px);
+  }
+  .filter {
+    margin-right: 3rem;
+    opacity: 0.7;
+  }
+  .filter:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .filter p {
+    font-size: 0.9rem;
+  }
+  .tax-info {
+    display: none;
+  }
+  .switch-div {
+    height: 2.5rem;
+    border: 1px solid black;
+    border-radius: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+</style>
+
+<div class="filters ps-4 rounded-3">
+  <div class="filter text-center">
+    <div class="filter-img">
+      <i class="fa-solid fa-fire-flame-curved fs-5"></i>
+    </div>
+    <p>Trending</p>
+  </div>
+  <div class="filter text-center">
+    <div class="filter-img">
+      <i class="fa-solid fa-bed fs-5"></i>
+    </div>
+    <p>Rooms</p>
+  </div>
+  <div class="filter text-center">
+    <div class="filter-img">
+      <i class="fa-solid fa-mountain-city fs-5"></i>
+    </div>
+    <p>Iconic </p>
+  </div>
+  <div class="filter text-center">
+    <div class="filter-img">
+      <i class="fa-solid fa-mountain fs-5"></i>
+    </div>
+    <p>Mountain</p>
+  </div>
+  <div class="filter text-center">
+    <div class="filter-img">
+      <i class="fa-solid fa-chess-rook fs-5"></i>
+    </div>
+    <p>Castles</p>
+  </div>
+  <div class="filter text-center">
+    <div class="filter-img">
+      <i class="fa-solid fa-snowflake fs-5"></i>
+    </div>
+    <p>Arctic</p>
+  </div>
+  <div class="filter text-center">
+    <div class="filter-img">
+      <i class="fa-solid fa-route fs-5"></i>
+    </div>
+    <p>Camping</p>
+  </div>
+  <div class="filter text-center">
+    <div class="filter-img">
+      <i class="fa-solid fa-cow fs-5"></i>
+    </div>
+    <p>Farms</p>
+  </div>
+  <div class="filter text-center">
+    <div class="filter-img">
+      <i class="fa-solid fa-igloo"></i>
+    </div>
+    <p>Domes</p>
+  </div>
+  <div class="switch-div ms-5">
+    <div class="form-check-reverse form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="switchCheckDefault"
+      />
+      <label class="form-check-label" for="switchCheckDefault"
+        >Display total after taxes</label
+      >
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <% for(let listing of allListings){ %>
+  <div class="col mx-4">
+    <div class="card" style="width: 16rem; height: 19rem">
+        <a href="/listings/<%= listing._id %>" class="card-link">
+        <img
+          src="<%= listing.image.url %>"
+          class="card-img-top"
+          style="height: 12rem"
+          alt="loading..."
+        />
+        <div class="card-img-overlay"></div>
+        <div class="card-body text-black">
+          <p class="card-title"><b><%= listing.title %></b></p>
+          &#x20b9; <%= listing.price.toLocaleString("en-IN") %> /night
+          <i class="tax-info"> &nbsp; &nbsp;+18% GST</i>
+        </div>
+      </div>
+    </a>
+  </div>
+  <% } %>
+</div>
+
+<script>
+  let taxSwitch = document.getElementById("switchCheckDefault");
+  taxSwitch.addEventListener("click", () => {
+    let taxinfo = document.getElementsByClassName("tax-info");
+    for (let info of taxinfo) {
+      if (info.style.display != "inline") {
+        info.style.display = "inline";
+      } else {
+        info.style.display = "none";
+      }
+    }
+  });
+</script>
