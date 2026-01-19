@@ -24,7 +24,7 @@ const { connect } = require("http2");
 
 //Mongoose connect
 async function main() {
-  await mongoose.connect(process.env.DBLINK);
+  await mongoose.connect(mongoURL);
 }
 main()
   .then(() => {
