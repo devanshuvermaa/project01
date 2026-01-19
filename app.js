@@ -42,8 +42,6 @@ app.use(methodoverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
-
-
 const store = mongoStore.create({
   mongoUrl: process.env.DBLINK,
   crypto: {

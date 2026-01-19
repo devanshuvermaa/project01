@@ -2,136 +2,137 @@
 <style>
   .filters {
     display: flex;
-    overflow: auto;
-    margin: 2rem 0;
-    padding-top: 1rem;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-    transform: translateY(0);
-    transition: all 0.3s ease-in-out;
+    align-items: center;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+    -webkit-overflow-scrolling: touch; 
   }
   .filters::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
-  }
-  .filters:hover {
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    transform: translateY(-6px);
+    display: none;
   }
   .filter {
-    margin-right: 3rem;
+    text-align: center;
+    margin-right: 2rem;
     opacity: 0.7;
+    transition: 0.2s;
+    flex: 0 0 auto; 
   }
   .filter:hover {
     opacity: 1;
     cursor: pointer;
+    border-bottom: 2px solid #000;
   }
   .filter p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
   }
+
+  
+  .tax-toggle-container {
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto 2rem auto; 
+  }
+  
+  @media (min-width: 768px) {
+    .tax-toggle-container {
+        margin: 0 0 2rem auto; 
+    }
+  }
+
   .tax-info {
     display: none;
+    color: #fe424d;
+    font-weight: 600;
   }
-  .switch-div {
-    height: 2.5rem;
-    border: 1px solid black;
-    border-radius: 0.7rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
+  
+  
+  .card-img-top {
+    border-radius: 1rem !important;
+    width: 100%;
+    object-fit: cover;
+  }
+  .listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
   }
 </style>
 
-<div class="filters ps-4 rounded-3">
-  <div class="filter text-center">
-    <div class="filter-img">
-      <i class="fa-solid fa-fire-flame-curved fs-5"></i>
+<div class="container-fluid">
+    <div class="d-md-flex align-items-center">
+        <div class="filters flex-grow-1">
+            <div class="filter">
+                <i class="fa-solid fa-fire-flame-curved fs-5"></i>
+                <p>Trending</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-bed fs-5"></i>
+                <p>Rooms</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-mountain-city fs-5"></i>
+                <p>Iconic</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-mountain fs-5"></i>
+                <p>Mountain</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-chess-rook fs-5"></i>
+                <p>Castles</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-snowflake fs-5"></i>
+                <p>Arctic</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-route fs-5"></i>
+                <p>Camping</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-cow fs-5"></i>
+                <p>Farms</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-igloo fs-5"></i>
+                <p>Domes</p>
+            </div>
+        </div>
+
+        <div class="tax-toggle-container shadow-sm">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
+                <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+            </div>
+        </div>
     </div>
-    <p>Trending</p>
-  </div>
-  <div class="filter text-center">
-    <div class="filter-img">
-      <i class="fa-solid fa-bed fs-5"></i>
-    </div>
-    <p>Rooms</p>
-  </div>
-  <div class="filter text-center">
-    <div class="filter-img">
-      <i class="fa-solid fa-mountain-city fs-5"></i>
-    </div>
-    <p>Iconic </p>
-  </div>
-  <div class="filter text-center">
-    <div class="filter-img">
-      <i class="fa-solid fa-mountain fs-5"></i>
-    </div>
-    <p>Mountain</p>
-  </div>
-  <div class="filter text-center">
-    <div class="filter-img">
-      <i class="fa-solid fa-chess-rook fs-5"></i>
-    </div>
-    <p>Castles</p>
-  </div>
-  <div class="filter text-center">
-    <div class="filter-img">
-      <i class="fa-solid fa-snowflake fs-5"></i>
-    </div>
-    <p>Arctic</p>
-  </div>
-  <div class="filter text-center">
-    <div class="filter-img">
-      <i class="fa-solid fa-route fs-5"></i>
-    </div>
-    <p>Camping</p>
-  </div>
-  <div class="filter text-center">
-    <div class="filter-img">
-      <i class="fa-solid fa-cow fs-5"></i>
-    </div>
-    <p>Farms</p>
-  </div>
-  <div class="filter text-center">
-    <div class="filter-img">
-      <i class="fa-solid fa-igloo"></i>
-    </div>
-    <p>Domes</p>
-  </div>
-  <div class="switch-div ms-5">
-    <div class="form-check-reverse form-switch">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        role="switch"
-        id="switchCheckDefault"
-      />
-      <label class="form-check-label" for="switchCheckDefault"
-        >Display total after taxes</label
-      >
-    </div>
-  </div>
 </div>
 
-<div class="row">
-  <% for(let listing of allListings){ %>
-  <div class="col mx-4">
-    <div class="card" style="width: 16rem; height: 19rem">
-        <a href="/listings/<%= listing._id %>" class="card-link">
-        <img
-          src="<%= listing.image.url %>"
-          class="card-img-top"
-          style="height: 12rem"
-          alt="loading..."
-        />
-        <div class="card-img-overlay"></div>
-        <div class="card-body text-black">
-          <p class="card-title"><b><%= listing.title %></b></p>
-          &#x20b9; <%= listing.price.toLocaleString("en-IN") %> /night
-          <i class="tax-info"> &nbsp; &nbsp;+18% GST</i>
+<div class="container">
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
+        <% for(let listing of allListings){ %>
+        <div class="col">
+            <a href="/listings/<%= listing._id %>" class="text-decoration-none">
+                <div class="card listing-card h-100">
+                    <img src="<%= listing.image.url %>" class="card-img-top" style="height: 18rem" alt="listing_image" />
+                    <div class="card-body p-0 mt-2">
+                        <p class="card-text text-dark">
+                            <b><%= listing.title %></b> <br />
+                            &#x20b9; <%= listing.price.toLocaleString("en-IN") %> / night
+                            <span class="tax-info small"> &nbsp;+18% GST</span>
+                        </p>
+                    </div>
+                </div>
+            </a>
         </div>
-      </div>
-    </a>
-  </div>
-  <% } %>
+        <% } %>
+    </div>
 </div>
 
 <script>
@@ -139,11 +140,7 @@
   taxSwitch.addEventListener("click", () => {
     let taxinfo = document.getElementsByClassName("tax-info");
     for (let info of taxinfo) {
-      if (info.style.display != "inline") {
-        info.style.display = "inline";
-      } else {
-        info.style.display = "none";
-      }
+      info.style.display = (info.style.display !== "inline") ? "inline" : "none";
     }
   });
 </script>
