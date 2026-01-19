@@ -2,7 +2,7 @@ if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
 
-const mongoURL = "mongodb://127.0.0.1:27017/travora";
+const dbUrl = process.env.DBLINK || "mongodb://127.0.0.1:27017/travora";
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -24,7 +24,7 @@ const { connect } = require("http2");
 
 //Mongoose connect
 async function main() {
-  await mongoose.connect(mongoURL);
+  await mongoose.connect(dbUrl);
 }
 main()
   .then(() => {
@@ -41,6 +41,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodoverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
+
+
 
 const store = mongoStore.create({
   mongoUrl: process.env.DBLINK,
